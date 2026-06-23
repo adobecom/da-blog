@@ -258,8 +258,8 @@ async function buildArticleHeader(el) {
   const tag = getMetadata('article:tag');
   const category = tag || 'News';
   const author = getMetadata('author') || 'Adobe Communications Team';
-  const { codeRoot } = getConfig();
-  const authorURL = getMetadata('author-url') || (author ? `${codeRoot}/authors/${author.replace(/[^0-9a-z]/gi, '-').toLowerCase()}` : null);
+  const { codeRoot, locale } = getConfig();
+  const authorURL = getMetadata('author-url') || (author ? `${codeRoot}${locale.prefix}/authors/${author.replace(/[^0-9a-z]/gi, '-').toLowerCase()}` : null);
   const publicationDate = getMetadata('publication-date');
 
   const categoryTag = getLinkForTopic(category);
